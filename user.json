@@ -1,0 +1,14 @@
+{
+    "registration": [
+      {
+        "firstName": "Abhinv",
+       "lastName": "Singh",
+       "id":1
+      },
+      {
+        "firstName": "Satwant",
+        "lastName": "Singh",
+        "id":2
+      }
+    ]
+  }
