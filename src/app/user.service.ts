@@ -8,8 +8,12 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
+
   [x: string]: any;
   public url = 'http://localhost:3000/registration';
+  constructor(private httpClient: HttpClient) {
+
+}
   /**
    * 
    * @param url Get Request
@@ -19,13 +23,19 @@ export class UserService {
   postRequestResponse(serviceRequest) {
     return this.httpClient.post(this.url, serviceRequest);
   }
-  getResponse(url: string) {
-    return this.httpClient.get(url);
+  getResponse() {
+    return this.httpClient.get(this.url);
   }
-  deleteStudentData(id: number) {
-    return this.httpClient.delete(this.url, id);
+  deleteStudentData(id) {
+    return this.httpClient.delete('http://localhost:3000/registration'+ '/'+id);
   }
-  updateStudentdData(user, id: number) {
-    return this.httpClient.put(this.url, id, user);
+  updateStudentdData(user, id) {
+    return this.httpClient.put('http://localhost:3000/registration'+ '/'+id, user);
+  }
+      /**
+     ** create getSingleStudentDetail() function to get the data by using 'GET' method request based on selected id which are passing as a parameter. 
+     */
+    getSingleStudentDetail(id: any) {
+      return this.httpClient.get('http://localhost:3000/registration'+ '/'+id);
   }
 }

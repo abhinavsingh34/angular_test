@@ -1,14 +1,28 @@
 {
-    "registration": [
-      {
-        "firstName": "Abhinv",
-       "lastName": "Singh",
-       "id":1
-      },
-      {
-        "firstName": "Satwant",
-        "lastName": "Singh",
-        "id":2
-      }
-    ]
-  }
+  "registration": [
+    {
+      "firstName": "Satwant",
+      "id": 2
+    },
+    {
+      "firstName": "df",
+      "lastName": "dfd",
+      "id": 3
+    },
+    {
+      "firstName": "Abhinv2",
+      "lastName": "zxzx",
+      "id": 5
+    },
+    {
+      "firstName": "df",
+      "lastName": "dfd",
+      "id": 6
+    },
+    {
+      "firstName": "df",
+      "lastName": "dfd",
+      "id": 7
+    }
+  ]
+}

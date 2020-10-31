@@ -2,20 +2,19 @@
     <table class="table table-bordered">
        <thead>
           <tr>
-             <th>Student-Id</th>
-             <th>Student-FirstName</th>
-             <th>Update/Delete</th>
+             <th>Id</th>
+             <th>FirstName</th>
+             <th>Update / Delete</th>
           </tr>
        </thead>
-       <tbody>
-    
-          <tr *ngFor='let studentinfo of studentData; let idx = index'>
-             <td>{{idx}}{{studentinfo.id}}</td>
-             <td [ngClass]="{'bold':isChangeQty}">{{studentinfo.firstName}}</td>
+       <tbody>  
+          <tr *ngFor='let user of userData; let idx = index'>
+             <td>{{user.id}}</td>
+             <td [ngClass]="{'bold':isChangeQty}">{{user.firstName}}</td>
              <td colspan="5" class="updateData">        
-                <span [routerLink] ="['/update',studentinfo.id]" routerLinkActive="active"  
+                <span [routerLink] ="['/update',user.id]" routerLinkActive="active"  
                 id="{{idx+1}}updateData">Update</span>
-                <span  class="deleteData" (click)="deleteStudentDetails(studentinfo.id)" 
+                <span  class="deleteData" (click)="deleteStudentDetails(user.id)" 
                 id="{{idx+1}}deleteData">Delete</span>
              </td>
           </tr>

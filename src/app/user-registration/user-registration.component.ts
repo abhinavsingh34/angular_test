@@ -21,31 +21,26 @@ import { UserService } from '../user.service';
   styleUrls: ['./user-registration.component.css']
 })
 export class UserRegistrationComponent implements OnInit {
-  signupForm: FormGroup;
+  signupForms: FormGroup;
   constructor(private fb: FormBuilder,   private router: Router, private userService: UserService,
-    private activatedRoute: ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute) {
+      this.signupForms = this.fb.group({
+        firstName: ['', [Validators.required]],
+        lastName: ['', [Validators.required]],
+        });
+     }
 
   ngOnInit(): void {
   }
-      /**
-    * studentFormData Method which will fetch student form data
-    */
-   private studentFormData(): void {
-    this.signupForm = this.fb.group({
-    //firstName: ['', [Validators.required, ValidationService.spaceNotAllow, ValidationService.onlyAlphabetsAllow]],
-    firstName: ['', [Validators.required]],
-    lastName: ['', [Validators.required]],
-    });
-    //	console.log('his.signupForm ', this.signupForm );
-    }
+
     /**
     ** onFormSubmit method is use to submit the user details data and navigate to './detail' page
     */
    public onFormSubmit() {
-    if (this.signupForm.valid) {
-      console.log(this.signupForm.value);
-    this.userService.postRequestResponse(this.signupForm.value) //Observable need to subscribe to get value
-    .subscribe(response => { //Observer  An Observer is a consumer of values delivered by an Observable.
+    if (this.signupForms.valid) {
+      console.log(this.signupForms.value);
+    this.userService.postRequestResponse(this.signupForms.value)
+    .subscribe(response => { 
       this.router.navigate(['./detail']);
     },
     error => {

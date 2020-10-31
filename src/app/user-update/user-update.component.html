@@ -1,7 +1,7 @@
 
     <form class="form-horizontal"  [formGroup]="updateForm" (ngSubmit)="onUpdateStudentDetail()">		 
         
-        <legend><h2><b>Update Student Registration Form</b></h2></legend><br>
+        <legend><h2><b>Update User Registration Form</b></h2></legend><br>
         
         <div class="form-group">
           <label class="col-md-4 control-label">First Name</label>  
@@ -9,14 +9,16 @@
           <div class="input-group">
           <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
           <input  name="first_name" placeholder="First Name" class="form-control"  type="text"  id="inputFirstName"
-                  formControlName = "firstName" [(ngModel)]='studentDetailList.firstName'>
+                  formControlName = "firstName" [(ngModel)]='userListData'>
             </div>
           </div>
         </div>   
         <div class="form-group">
-        <div class="col-md-4"><br></div>
+        <div class="col-md-5"><br></div>
           <div class="col-md-2"><br>
-            <button type="submit" class="btn updateBtn">Update Details <span class="glyphicon glyphicon-send"></span></button>
+            <button type="submit" class="btn updateBtn">Update Details</button>
           </div>
+          <div class="col-md-5"><br></div>
         </div>
         </form>
+        

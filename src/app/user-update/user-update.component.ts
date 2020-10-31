@@ -23,17 +23,35 @@ import { UserService } from '../user.service';
 export class UserUpdateComponent implements OnInit {
   updateForm: FormGroup;
   public params;
+  public userListData; 
   constructor(private fb: FormBuilder,   private router: Router, private userService: UserService,
-    private activatedRoute: ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute) { 
+      this.updateForm = this.fb.group({
+        firstName: ['', [Validators.required]]
+        });
+    }
 
   ngOnInit(): void {
     this.params = this.activatedRoute.snapshot.params['id'];
+    this.getSingleStudentList(this.params);
   }
 
+	getSingleStudentList(para) {
+		this.userService.getSingleStudentDetail(para)
+			.subscribe(
+			data => {      
+        if (data){
+          this.userListData = data['firstName'];
+        }
+      }
+			);
+	}
   onUpdateStudentDetail() {
+    console.log(this.updateForm.value);
 			this.userService.updateStudentdData(this.updateForm.value, this.params)
 				.subscribe(response => {
           console.log(response);
+          this.router.navigate(['./detail']);
 				},
 				error => {
 					console.error("Error deleting food!");
